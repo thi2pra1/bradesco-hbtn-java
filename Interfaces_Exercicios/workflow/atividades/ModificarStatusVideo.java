@@ -1,4 +1,3 @@
-package Interfaces_Exercicios.workflow.atividades;
 
 public class ModificarStatusVideo implements Atividade {
     public void executar() {

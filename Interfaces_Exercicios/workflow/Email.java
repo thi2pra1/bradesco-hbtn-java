@@ -1,4 +1,3 @@
-package Interfaces_Exercicios.workflow;
 
 public class Email implements CanalNotificacao {
     public void notificar(Mensagem mensagem) {

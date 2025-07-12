@@ -1,4 +1,3 @@
-package Interfaces_Exercicios.workflow;
 
 public class Mensagem {
     private String texto;
