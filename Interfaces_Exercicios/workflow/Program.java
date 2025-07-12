@@ -1,4 +1,4 @@
-import atividades.*;
+import atividades.Atividade;
 
 public class Program {
     public static void main(String[] args) {
