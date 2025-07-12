@@ -13,43 +13,58 @@ public class Pedido {
     }
 
     public double calcularTotal() {
-        double totalProdutos = 0;
+        double total = 0.0;
         for (ItemPedido item : itens) {
-            totalProdutos += item.getQuantidade() * item.getProduto().obterPrecoLiquido();
+            total += item.getProduto().obterPrecoLiquido() * item.getQuantidade();
         }
-        return totalProdutos * (1 - percentualDesconto / 100);
+        double desconto = total * (percentualDesconto / 100.0);
+        return total - desconto;
     }
 
     public void apresentarResumoPedido() {
-        Locale.setDefault(new Locale("pt", "BR"));
-
         System.out.println("------- RESUMO PEDIDO -------");
 
-        double totalProdutos = 0;
+        double totalProdutos = 0.0;
 
         for (ItemPedido item : itens) {
-            String tipo = (item.getProduto() instanceof produtos.Livro) ? "Livro" : "Dvd";
-            String titulo = item.getProduto().getTitulo();
-            double preco = item.getProduto().obterPrecoLiquido();
-            int quantidade = item.getQuantidade();
-            double totalItem = preco * quantidade;
+            Produto produto = item.getProduto();
+            double preco = produto.obterPrecoLiquido();
+            int quant = item.getQuantidade();
+            double total = preco * quant;
+            totalProdutos += total;
 
-            System.out.printf(Locale.getDefault(),
+            String tipo = produto instanceof Livro ? "Livro" : "Dvd";
+            System.out.printf(
                     "Tipo: %s  Titulo: %s  Preco: %.2f  Quant: %d  Total: %.2f\n",
-                    tipo, titulo, preco, quantidade, totalItem);
-
-            totalProdutos += totalItem;
+                    tipo,
+                    getTitulo(produto),
+                    preco,
+                    quant,
+                    total
+            );
         }
 
-        System.out.println("----------------------------");
+        double desconto = totalProdutos * (percentualDesconto / 100.0);
+        double totalPedido = totalProdutos - desconto;
 
-        double desconto = totalProdutos * (percentualDesconto / 100);
+        System.out.println("----------------------------");
+        System.out.printf("DESCONTO: %.2f\n", desconto);
+        System.out.printf("TOTAL PRODUTOS: %.2f\n", totalProdutos);
+        System.out.println("----------------------------");
+        System.out.printf("TOTAL PEDIDO: %.2f\n", totalPedido);
+        System.out.println("----------------------------");
+    }
 
-        System.out.printf(Locale.getDefault(), "DESCONTO: %.2f\n", desconto);
-        System.out.printf(Locale.getDefault(), "TOTAL PRODUTOS: %.2f\n", totalProdutos);
-        System.out.println("----------------------------");
-        System.out.printf(Locale.getDefault(), "TOTAL PEDIDO: %.2f\n", calcularTotal());
-        System.out.println("----------------------------");
+    private String getTitulo(Produto produto) {
+        // Usa reflexão porque título é private e não foi criado um getter.
+        // Mas se você tiver um getTitulo() em Produto, pode usar diretamente.
+        try {
+            java.lang.reflect.Field tituloField = Produto.class.getDeclaredField("titulo");
+            tituloField.setAccessible(true);
+            return (String) tituloField.get(produto);
+        } catch (Exception e) {
+            return "TÍTULO DESCONHECIDO";
+        }
     }
 }
 
