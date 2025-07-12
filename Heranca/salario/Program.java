@@ -45,4 +45,5 @@ public class Program {
                 gerenteDocumentacao.calcularSalarioTotal(departamentoDocumentacao),
                 gerenteDocumentacao.calcularBonus(departamentoDocumentacao));
     }
+
 }
