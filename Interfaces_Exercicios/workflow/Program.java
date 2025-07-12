@@ -1,33 +1,34 @@
-package Interfaces_Exercicios.workflow;
-
 import atividades.*;
 
 public class Program {
     public static void main(String[] args) {
         MaquinaWorkflow maquinaWorkflow = new MaquinaWorkflow();
 
-        Workflow workflow1 = new Workflow();
-        workflow1.registrarAtividade(new CarregarVideo());
-        workflow1.registrarAtividade(new CodificarVideo());
-        workflow1.registrarAtividade(new EnviarEmail());
+        Workflow workflowEncodificarVideos = new Workflow();
 
-        maquinaWorkflow.executar(workflow1);
+        workflowEncodificarVideos.registrarAtividade(new CarregarVideo());
+        workflowEncodificarVideos.registrarAtividade(new CodificarVideo());
+        workflowEncodificarVideos.registrarAtividade(new EnviarEmail());
 
-        System.out.println("-----");
-
-        Workflow workflow2 = new Workflow();
-        workflow2.registrarAtividade(new CarregarVideo());
-        workflow2.registrarAtividade(new EnviarEmail());
-
-        maquinaWorkflow.executar(workflow2);
+        maquinaWorkflow.executar(workflowEncodificarVideos);
 
         System.out.println("-----");
 
-        Workflow workflow3 = new Workflow();
-        workflow3.registrarAtividade(new CarregarVideo());
-        workflow3.registrarAtividade(new ModificarStatusVideo());
-        workflow3.registrarAtividade(new EnviarEmail());
+        Workflow workflowVideos = new Workflow();
 
-        maquinaWorkflow.executar(workflow3);
+        workflowVideos.registrarAtividade(new CarregarVideo());
+        workflowVideos.registrarAtividade(new EnviarEmail());
+
+        maquinaWorkflow.executar(workflowVideos);
+
+        System.out.println("-----");
+
+        Workflow workflowVideosStatus = new Workflow();
+
+        workflowVideosStatus.registrarAtividade(new CarregarVideo());
+        workflowVideosStatus.registrarAtividade(new ModificarStatusVideo());
+        workflowVideosStatus.registrarAtividade(new EnviarEmail());
+
+        maquinaWorkflow.executar(workflowVideosStatus);
     }
 }
