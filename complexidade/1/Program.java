@@ -12,5 +12,7 @@ public class Program {
             System.out.println("Tempo de execução: " + (System.nanoTime() - inicio));
             throw e;
         }
+        System.out.println("Tempo de execução: " + (System.nanoTime() - inicio));
     }
+
 }

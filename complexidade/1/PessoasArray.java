@@ -19,11 +19,12 @@ public class PessoasArray {
             if (nomes[i] == nome) {
                 posicaoEncontrada = i;
                 System.out.println("Nome pesquisado é " + nome + " que está na posição " + posicaoEncontrada);
-                return;  // para a busca ao encontrar
             }
         }
 
-        throw new IllegalArgumentException("O nome " + nome + " não se encontra no array de nomes");
+        if (posicaoEncontrada == -1) {
+            throw new IllegalArgumentException("O nome " + nome + " não se encontra no array de nomes");
+        }
     }
 
 }
