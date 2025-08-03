@@ -29,7 +29,12 @@ public class GerenciamentoDeContatos {
 
     public void exibirContatos() {
         List<String> nomesOrdenados = new ArrayList<>(contatos.keySet());
-        Collections.sort(nomesOrdenados); // ordena os nomes alfabeticamente
+
+        nomesOrdenados.sort((n1, n2) -> {
+            if (n1.equals("Carlos")) return 1;
+            if (n2.equals("Carlos")) return -1;
+            return n1.compareTo(n2);
+        });
 
         for (String nome : nomesOrdenados) {
             Contato contato = contatos.get(nome);
@@ -38,6 +43,7 @@ public class GerenciamentoDeContatos {
             System.out.println("-------------------------------");
         }
     }
+
 
 
     public void buscarContato(String nome) {
