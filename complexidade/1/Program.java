@@ -11,9 +11,6 @@ public class Program {
         } catch (IllegalArgumentException e) {
             System.out.println("Tempo de execução: " + (System.nanoTime() - inicio));
             throw e;
-
-        System.out.println("Tempo de execução: " + (System.nanoTime() - inicio));
         }
     }
-
 }
