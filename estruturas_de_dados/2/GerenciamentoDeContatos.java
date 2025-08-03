@@ -28,14 +28,17 @@ public class GerenciamentoDeContatos {
     }
 
     public void exibirContatos() {
-        for (Map.Entry<String, Contato> entry : contatos.entrySet()) {
-            String nome = entry.getKey();
-            Contato contato = entry.getValue();
+        List<String> nomesOrdenados = new ArrayList<>(contatos.keySet());
+        Collections.sort(nomesOrdenados); // ordena os nomes alfabeticamente
+
+        for (String nome : nomesOrdenados) {
+            Contato contato = contatos.get(nome);
             System.out.println("Nome: " + nome);
             contato.exibirContato();
             System.out.println("-------------------------------");
         }
     }
+
 
     public void buscarContato(String nome) {
         Contato contato = contatos.get(nome);
