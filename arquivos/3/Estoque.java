@@ -64,7 +64,6 @@ public class Estoque {
         boolean removido = produtos.removeIf(p -> p.getId() == id);
         if (removido) {
             salvarProdutos();
-            System.out.println("Produto excluído com sucesso.");
         } else {
             System.out.println("Produto com ID " + id + " não encontrado.");
         }
@@ -91,7 +90,6 @@ public class Estoque {
         }
         if (atualizado) {
             salvarProdutos();
-            System.out.println("Quantidade atualizada com sucesso.");
         } else {
             System.out.println("Produto com ID " + id + " não encontrado.");
         }
