@@ -9,20 +9,11 @@ public class PessoasArray {
                 "Tais", "Umberto", "Vanessa", "Xavier"};
     }
 
-    public String[] getNomes() {
-        return nomes;
-    }
-
-    public void setNomes(String[] nomes) {
-        this.nomes = nomes;
-    }
-
     public void buscaLinear(String nome) {
         nome = nome.intern();
         System.out.println("Procurando pelo nome: \"" + nome + "\"");
         int posicaoEncontrada = -1;
 
-        // Percorre todo o array, imprimindo o indice e checando o nome
         for (int i = 0; i < nomes.length; i++) {
             System.out.println("Passando pelo indice:" + i);
             if (nomes[i] == nome) {
