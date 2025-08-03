@@ -13,22 +13,15 @@ public class CsvFileReader {
             while ((linha = reader.readLine()) != null) {
                 if (linha.trim().isEmpty()) continue;
 
+                linha = linha.replace("\uFEFF", "");
+
                 String[] campos = linha.split(",");
 
-                if (isFirstLine) {
-                    System.out.printf("Funcionário: %s\n", campos[0]);
-                    System.out.printf("Idade: %s\n", campos[1]);
-                    System.out.printf("Departamento: %s\n", campos[2]);
-                    System.out.printf("Salarial: %s\n", campos[3]);
-                    System.out.println("------------------------");
-                    isFirstLine = false;
-                } else {
-                    System.out.printf("Funcionário: %s\n", campos[0]);
-                    System.out.printf("Idade: %s\n", campos[1]);
-                    System.out.printf("Departamento: %s\n", campos[2]);
-                    System.out.printf("Salarial: %s\n", campos[3]);
-                    System.out.println("------------------------");
-                }
+                System.out.printf("Funcionário: %s\n", campos[0]);
+                System.out.printf("Idade: %s\n", campos[1]);
+                System.out.printf("Departamento: %s\n", campos[2]);
+                System.out.printf("Salarial: %s\n", campos[3]);
+                System.out.println("------------------------");
             }
 
             System.out.println("Leitura do arquivo concluída.");
