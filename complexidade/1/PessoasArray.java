@@ -23,7 +23,7 @@ public class PessoasArray {
 
         for (int i = 0; i < nomes.length; i++) {
             System.out.println("Passando pelo indice:" + i);
-            if (nomes[i] == nome) {
+            if (nomes[i].equals(nome)) {
                 posicaoEncontrada = i;
             }
         }
