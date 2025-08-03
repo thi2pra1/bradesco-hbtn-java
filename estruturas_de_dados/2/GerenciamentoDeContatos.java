@@ -4,7 +4,7 @@ public class GerenciamentoDeContatos {
     private Map<String, Contato> contatos;
 
     public GerenciamentoDeContatos() {
-        contatos = new HashMap<>();
+        contatos = new LinkedHashMap<>();
     }
 
     public void adicionarContato(String nome, String telefone, String email) {
@@ -28,11 +28,9 @@ public class GerenciamentoDeContatos {
     }
 
     public void exibirContatos() {
-        List<String> nomes = new ArrayList<>(contatos.keySet());
-        Collections.sort(nomes);
-
-        for (String nome : nomes) {
-            Contato contato = contatos.get(nome);
+        for (Map.Entry<String, Contato> entry : contatos.entrySet()) {
+            String nome = entry.getKey();
+            Contato contato = entry.getValue();
             System.out.println("Nome: " + nome);
             contato.exibirContato();
             System.out.println("-------------------------------");
