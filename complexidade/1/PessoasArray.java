@@ -24,7 +24,7 @@ public class PessoasArray {
 
         for (int i = 0; i < nomes.length; i++) {
             System.out.println("Passando pelo indice:" + i);
-            if (nomes[i] == nome) {  // mantém o ==
+            if (nomes[i] == nome) {
                 posicaoEncontrada = i;
             }
         }
@@ -35,6 +35,5 @@ public class PessoasArray {
             throw new IllegalArgumentException("O nome " + nome + " não se encontra no array de nomes");
         }
     }
-
 
 }
