@@ -28,8 +28,6 @@ public class PessoasArray {
 
 
 
-
-
         if (posicaoEncontrada == -1) {
             throw new IllegalArgumentException("O nome " + nome + " não se encontra no array de nomes");
         }
