@@ -1,4 +1,3 @@
-package Streams_Collector_Optional_Exercicios.quantidade_pessoas_por_cargo_idade;
 
 public class Pessoa implements Comparable<Pessoa> {
     private int codigo;
