@@ -24,6 +24,10 @@ public class Pessoa implements Comparable<Pessoa> {
         return cargo;
     }
 
+    public int getIdade() {
+        return idade;
+    }
+
     @Override
     public int compareTo(Pessoa o) {
         int cmp = this.nome.compareTo(o.nome);

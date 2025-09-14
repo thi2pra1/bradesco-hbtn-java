@@ -8,7 +8,7 @@ public class ConsultaPessoas {
                 .collect(Collectors.groupingBy(
                         Pessoa::getCargo,
                         Collectors.groupingBy(
-                                p -> p.getIdade(),
+                                Pessoa::getIdade,
                                 Collectors.counting()
                         )
                 ));
