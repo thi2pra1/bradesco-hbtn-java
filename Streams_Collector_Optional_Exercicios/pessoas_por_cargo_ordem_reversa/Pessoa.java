@@ -26,6 +26,8 @@ public class Pessoa implements Comparable<Pessoa> {
 
     @Override
     public int compareTo(Pessoa o) {
+        int cmp = this.nome.compareTo(o.nome);
+        if (cmp != 0) return cmp;
         return Integer.compare(this.codigo, o.codigo);
     }
 }

@@ -1,3 +1,6 @@
+import Streams_Collector_Optional_Exercicios.pessoas_por_cargo_ordem_reversa.ConsultaPessoas;
+import Streams_Collector_Optional_Exercicios.pessoas_por_cargo_ordem_reversa.Pessoa;
+
 import java.util.*;
 
 public class Program {
